@@ -1,0 +1,106 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: dark light;
+  color: #000;
+  background-color: #FFF;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --primary-color: #2CA18C;
+  --secondary-color: #395B64;
+  --tertiary-color: #EEE2D1;
+  --welcome-message-bg-color: #FF916B;
+  --text-primary-color: #f4fbf9;
+  --text-secondary-color: #2C3333;
+}
+
+h1, p {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--tertiary-color);
+}
+
+#app {
+  color: var(--text-secondary-color)
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--primary-color);
+  height: 8rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+
+
+header .logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  width: 10rem;
+  height: 6rem;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+main .welcome-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: right;
+  gap: 1.5rem;
+  background-color: var(--welcome-message-bg-color);
+  color: var(--text-secondary-color);
+}
+
+main .welcome-message .welcome-message__text h1 {
+  font-size: 2.5rem;
+  line-height: 2;
+}
+
+main .welcome-message .welcome-message__text p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary-color)
+}
+
+main .welcome-message img {
+  width: 24rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  height: 8rem;
+  color: var(--text-primary-color)
+}
+
+
