@@ -73,10 +73,16 @@ main .welcome-message {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  text-align: right;
   gap: 1.5rem;
   background-color: var(--welcome-message-bg-color);
   color: var(--text-secondary-color);
+}
+
+main .welcome-message .welcome-message__text {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: right;
 }
 
 main .welcome-message .welcome-message__text h1 {
@@ -87,7 +93,8 @@ main .welcome-message .welcome-message__text h1 {
 main .welcome-message .welcome-message__text p {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--text-primary-color)
+  color: var(--text-primary-color);
+  background-color: #c14364;
 }
 
 main .welcome-message img {
