@@ -13,10 +13,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  --primary-color: #2CA18C;
-  --secondary-color: #395B64;
-  --tertiary-color: #EEE2D1;
-  --welcome-message-bg-color: #FF916B;
+  --primary-color: #26798E;
+  --secondary-color: #63CAA7;
+  --tertiary-color: #FFC172;
+  --body-bg-color: #FFE3B3;
   --text-primary-color: #f4fbf9;
   --text-secondary-color: #2C3333;
 }
@@ -29,8 +29,7 @@ h1, p {
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--tertiary-color);
+  background-color: var(--body-bg-color);
 }
 
 #app {
@@ -40,7 +39,7 @@ body {
 header {
   position: sticky;
   top: 0;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   height: 8rem;
   font-size: 1.6rem;
   display: flex;
@@ -74,8 +73,9 @@ main .welcome-message {
   justify-content: center;
   padding: 1rem;
   gap: 1.5rem;
-  background-color: var(--welcome-message-bg-color);
+  background-color: var(--tertiary-color);
   color: var(--text-secondary-color);
+  height: 30vh;
 }
 
 main .welcome-message .welcome-message__text {
@@ -94,18 +94,83 @@ main .welcome-message .welcome-message__text p {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-primary-color);
-  background-color: #c14364;
+  background-color: var(--primary-color);
 }
 
 main .welcome-message img {
   width: 24rem;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
+main .about-me {
+  padding: 3rem 0rem 3rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
+  text-align: left;
+  height: 30vh;
+}
+
+main .about-me h2 {
+  font-size: 2rem;
   background-color: var(--primary-color);
+  color: var(--text-primary-color);
+  width: fit-content;
+}
+
+main .about-me img{
+  width: 30rem;
+  height: 30rem;
+}
+
+main .about-me p {
+  line-height: normal;
+  font-size: 1.5rem;
+  margin: 1rem 0 1rem 0;
+  padding-right: 1rem;
+}
+
+main .about-me h3 {
+  font-size: 1.8rem;
+}
+
+main .side-projects {
+  min-height: 25vh;
+  background-color: var(--tertiary-color);
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 3rem 0rem 3rem 0;
+}
+
+main .side-projects img {
+  width: 30rem;
+  height: 30rem;
+}
+
+main .side-projects .projects {
+  min-height: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+main .side-projects .projects h2 {
+  font-size: 1.8rem;
+  background-color: var(--primary-color);
+  color: var(--text-primary-color);
+}
+
+main .side-projects .projects h3 {
+  font-size: 2.4rem;
+}
+
+footer {
+  width: 100%;
+  background-color: var(--secondary-color);
   height: 8rem;
   color: var(--text-primary-color)
 }
