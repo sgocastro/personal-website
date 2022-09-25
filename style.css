@@ -28,8 +28,8 @@ h1, p {
 
 body {
   margin: 0;
-  min-width: 320px;
   background-color: var(--body-bg-color);
+  padding: 0;
 }
 
 #app {
@@ -47,8 +47,6 @@ header {
   padding: 0.8rem;
   text-align: center;
 }
-
-
 
 header .logo{
   display: flex;
@@ -75,7 +73,7 @@ main .welcome-message {
   gap: 1.5rem;
   background-color: var(--tertiary-color);
   color: var(--text-secondary-color);
-  height: 30vh;
+  height: fit-content;
 }
 
 main .welcome-message .welcome-message__text {
@@ -102,14 +100,13 @@ main .welcome-message img {
 }
 
 main .about-me {
-  padding: 3rem 0rem 3rem 0;
+  padding: 3rem 1rem 3rem 1rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
   text-align: left;
-  height: 30vh;
+  height: fit-content;
 }
 
 main .about-me h2 {
@@ -138,11 +135,11 @@ main .about-me h3 {
 main .side-projects {
   min-height: 25vh;
   background-color: var(--tertiary-color);
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 3rem 0rem 3rem 0;
+  height: fit-content;
 }
 
 main .side-projects img {
@@ -169,10 +166,65 @@ main .side-projects .projects h3 {
 }
 
 footer {
-  width: 100%;
   background-color: var(--secondary-color);
   height: 8rem;
-  color: var(--text-primary-color)
+  color: var(--text-primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
+footer a {
+  text-decoration: none;
+}
 
+footer a:focus, footer a:visited {
+  color: currentColor;
+}
+
+@media (max-width: 720px){
+  header {
+    justify-content: center;
+  }
+
+  main .welcome-message {
+    flex-direction: column;
+  }
+
+  main .welcome-message .welcome-message__text {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  main .welcome-message .welcome-message__text h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+  
+  main .welcome-message img {
+    width: 20rem;
+  }
+
+  main .about-me {
+    flex-direction: column-reverse;
+  }
+
+  main .about-me img {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  main .side-projects {
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  main .side-projects .projects {
+    align-items: flex-start;
+  }
+
+  main .side-projects .projects  h3{
+    align-self: center;
+  }
+}
