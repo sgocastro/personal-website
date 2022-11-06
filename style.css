@@ -43,7 +43,7 @@ article {
 }
 
 main .presentation {
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem 1rem 0 1.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,4 +102,50 @@ main .about-me .about-me__text h2,h3 {
 
 main .about-me .about-me__text p {
   font-size: var(--normal-text-size);
+}
+
+aside {
+  position: fixed;
+  width: fit-content;
+  height: 6rem;
+  background-color: var(--secondary-color);
+  left: -10.5rem;
+  top: 50%;
+  animation: close-contact 0.5s forwards;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: .5rem;
+  padding-left: 1.8rem;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+aside:hover, aside:focus {
+  animation: open-contact 0.5s forwards;
+}
+
+@keyframes open-contact {
+  from {
+    left: -10.5rem;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes close-contact {
+  from {
+    left: 0;
+  }
+  to {
+    left: -10.5rem;
+  }
 }
