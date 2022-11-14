@@ -13,9 +13,9 @@ function getDateDifference(date, anotherDate = null) {
 }
 
 $("#years-development").innerText = getDateDifference(
-  new Date("08-01-2018")
+  new Date("08/01/2018")
 ).toString()
 
 $("#years-in-front-end").innerText = getDateDifference(
-  new Date("12-01-2019")
+  new Date("12/01/2019")
 ).toString()
