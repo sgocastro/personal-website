@@ -42,6 +42,23 @@ article {
   max-width: 100vw;
 }
 
+header {
+  position: fixed;
+  display: flex;
+  background-color: var(--primary-color);
+  color: var(--text-primary-color);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+main {
+  padding-top: 4rem;
+}
+
 main .presentation {
   padding: 1rem 1rem 0 1.8rem;
   display: flex;
