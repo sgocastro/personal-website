@@ -1,16 +1,10 @@
-function $(query) {
-  return document.querySelector(query)
-}
+import { AppLink, AppLogo, Contact, ContactButton } from "./components"
+import { $, getDateDifference } from "./utils"
 
-function getDateDifference(date, anotherDate = null) {
-  if (anotherDate == null) anotherDate = Date.now()
-
-  if (date == null) {
-    throw new Error("You didn't indicate date")
-  }
-
-  return new Date(anotherDate).getFullYear() - new Date(date).getFullYear()
-}
+window.customElements.define("app-logo", AppLogo)
+window.customElements.define("app-link", AppLink)
+window.customElements.define("contact-button", ContactButton)
+window.customElements.define("contact-social-media", Contact)
 
 $("#years-development").innerText = getDateDifference(
   new Date("08/01/2018")
