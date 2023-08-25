@@ -179,31 +179,58 @@
       <article class="contact-article">
         <h2 class="contact-article__title">Contact me</h2>
         <form id="contact-form" class="contact-article__form">
+          <label for="interested-person-email">Email</label>
           <input
             type="email"
-            name="email"
-            placeholder="Escriba aquí su email..."
+            id="interested-person-email"
+            name="interested-person-email"
+            placeholder="Write your email here..."
             class="contact-article__form__input"
+            required
           />
+          <label for="interested-person-name">Name</label>
           <input
             type="text"
+            id="interested-person-name"
             name="interested-person-name"
-            placeholder="Escriba aquí su nombre..."
+            placeholder="Write your name here..."
             class="contact-article__form__input"
+            required
           />
+          <label for="interested-person-enterprise">Enterprise</label>
           <input
             type="text"
-            name="enterprise-name"
-            placeholder="Escriba aquí el nombre de su empresa..."
+            id="interested-person-enterprise"
+            name="interested-person-enterprise"
+            placeholder="Write your enterprise here..."
             class="contact-article__form__input"
+            required
           />
+          <label for="interested-person-message">Message</label>
           <textarea
-            name="message"
-            placeholder="Escriba aquí su mensaje..."
-            maxlength="500"
+            id="interested-person-message"
+            name="interested-person-message"
+            placeholder="Write your message here..."
             class="contact-article__form__textarea"
+            required
           ></textarea>
-          <button type="submit">Contactar</button>
+          <button
+            id="contact-article-submit-button"
+            type="submit"
+            class="contact-article__form__submit"
+          >
+            Send
+          </button>
+          <div class="contact-article__form__submit__message">
+            <icon-ok color="var(--success-color)" size="60px"></icon-ok>
+            <p>Thank you for your interest in my profile!</p>
+            <p>I'll be responding shortly</p>
+          </div>
+          <div class="contact-article__form__submit__message">
+            <icon-error color="var(--error-color)" size="60px"></icon-error>
+            <p>Oops! An error occurred while sending the message</p>
+            <p>Please try again</p>
+          </div>
         </form>
       </article>
     </main>

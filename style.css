@@ -4,6 +4,8 @@
   --primary-color: #2C3333;
   --secondary-color: #2E4F4F;
   --tertiary-color: #0E8388;
+  --success-color: #2ECC71;
+  --error-color: #C9474E;
   --text-primary-color: #CBE4DE;
   --text-secondary-color: #FFFFFF;
   --xl-text-size: 3.2rem;
@@ -18,7 +20,7 @@
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, figure, img, small, ul, li {
+h1, h2, h3, h4, h5, h6, p, figure, img, small, ul, li, button {
   margin: 0;
   padding: 0;
 }
@@ -284,6 +286,7 @@ main .experience .experience .stack img {
 .contact-article__form__input {
   width: 100%;
   padding: .8rem 1.2rem;
+  border-radius: .4rem;
 }
 
 .contact-article__form__textarea {
@@ -291,11 +294,42 @@ main .experience .experience .stack img {
   padding: .8rem 1.2rem;
   resize: none;
   overflow: hidden;
+  border-radius: .4rem;
+}
+
+.contact-article__form__submit {
+  width: 50%;
+  padding: .8rem 1.2rem;
+  border-radius: .4rem;
+  background-color: var(--secondary-color);
+  color: var(--text-secondary-color);
+  font-weight: bold;
+  font-size: var(--m-text-size);
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  border: none;
+}
+
+.contact-article__form__submit:disabled {
+  background-color: var(--secondary-color-disabled);
+  color: var(--text-secondary-color-disabled);
+  cursor: not-allowed;
 }
 
 .contact-article__form__input:focus, .contact-article__form__textarea:focus {
   outline: none;
 }
+
+.contact-article__form__submit__message {
+  font-size: var(--m-text-size);
+  color: var(--text-secondary-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+
 
 @media only screen and (min-width: 1024px) {
   main .experiences-article .experiences {
