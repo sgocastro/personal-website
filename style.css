@@ -1,11 +1,12 @@
 :root {
-  font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 10px;
   --primary-color: #2C3333;
   --secondary-color: #2E4F4F;
   --tertiary-color: #0E8388;
   --success-color: #2ECC71;
   --error-color: #C9474E;
+  --disabled-color: #778899;
   --text-primary-color: #CBE4DE;
   --text-secondary-color: #FFFFFF;
   --xl-text-size: 3.2rem;
@@ -55,8 +56,12 @@ article {
 }
 
 *::placeholder {
-  font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
-  font-size: var(--s-text-size);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: var(--m-text-size);
+}
+
+input, textarea {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 header {
@@ -283,18 +288,33 @@ main .experience .experience .stack img {
   max-width: var(--phone-screen-size);
 }
 
-.contact-article__form__input {
+.contact-article__form__field {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: .4rem
+}
+
+.contact-article__form__field__label {
+  font-size: var(--m-text-size);
+  color: var(--text-secondary-color);
+  font-weight: bold;
+}
+
+.contact-article__form__field__input {
   width: 100%;
   padding: .8rem 1.2rem;
   border-radius: .4rem;
+  font-size: var(--m-text-size);
 }
 
-.contact-article__form__textarea {
+.contact-article__form__field__textarea {
   width: 100%;
   padding: .8rem 1.2rem;
   resize: none;
   overflow: hidden;
   border-radius: .4rem;
+  font-size: var(--m-text-size);
 }
 
 .contact-article__form__submit {
@@ -311,25 +331,31 @@ main .experience .experience .stack img {
 }
 
 .contact-article__form__submit:disabled {
-  background-color: var(--secondary-color-disabled);
+  background-color: var(--disabled-color);
   color: var(--text-secondary-color-disabled);
   cursor: not-allowed;
 }
 
-.contact-article__form__input:focus, .contact-article__form__textarea:focus {
+.contact-article__form__field__input:disabled, 
+.contact-article__form__field__textarea:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.contact-article__form__field__input:focus, 
+.contact-article__form__field__textarea:focus {
   outline: none;
 }
 
 .contact-article__form__submit__message {
   font-size: var(--m-text-size);
   color: var(--text-secondary-color);
-  display: flex;
+  font-weight: bold;
   align-items: center;
   flex-direction: column;
   gap: .8rem;
+  display: none;
 }
-
-
 
 @media only screen and (min-width: 1024px) {
   main .experiences-article .experiences {

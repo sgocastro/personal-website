@@ -7,42 +7,91 @@ customElements.define("icon-ok", Ok)
 customElements.define("icon-error", Error)
 
 document.addEventListener("DOMContentLoaded", () => {
+  const formInputs = {
+    interested_person_name: {
+      element: document.getElementById("interested-person-name"),
+    },
+    interested_person_email: {
+      element: document.getElementById("interested-person-email"),
+    },
+    interested_person_enterprise: {
+      element: document.getElementById("interested-person-enterprise"),
+    },
+    interested_person_message: {
+      element: document.getElementById("interested-person-message"),
+    },
+  }
+
+  const contactFormErrorMessage = document.getElementById(
+    "contact-form-error-message"
+  )
+  const contactFormSuccessMessage = document.getElementById(
+    "contact-form-success-message"
+  )
+  const submitButton = document.getElementById("contact-article-submit-button")
+
   document
     .querySelector("form#contact-form")
     .addEventListener("submit", async (e) => {
-      e.preventDefault()
+      try {
+        e.preventDefault()
 
-      const submitButton = document.querySelector("button#submit-button")
+        const formData = new FormData(e.target)
 
-      submitButton.setAttribute("disabled", true)
+        const API_URL = "https://api.emailjs.com/api/v1.0/email/send"
 
-      const formData = new FormData(e.target)
+        const body = JSON.stringify({
+          service_id: process.env.EMAIL_JS_SERVICE_ID,
+          template_id: process.env.EMAIL_JS_TEMPLATE_ID,
+          user_id: process.env.EMAIL_JS_USER_ID,
+          template_params: {
+            interested_person_name: formData.get("interested-person-name"),
+            interested_person_email: formData.get("interested-person-email"),
+            interested_person_enterprise: formData.get(
+              "interested-person-enterprise"
+            ),
+            interested_person_message: formData.get(
+              "interested-person-message"
+            ),
+          },
+        })
 
-      const API_URL = "https://api.emailjs.com/api/v1.0/email/send"
+        submitButton.setAttribute("disabled", true)
+        handleDisabledInContactFormInputs({ disabled: true })
 
-      const body = JSON.stringify({
-        service_id: "service_xhgygt7",
-        template_id: "template_qwjp05q",
-        user_id: "BuRXUJ2vyU3Bp1m64",
-        template_params: {
-          interested_person_name: formData.get("interested-person-name"),
-          interested_person_email: formData.get("interested-person-email"),
-          interested_person_enterprise: formData.get(
-            "interested-person-enterprise"
-          ),
-          interested_person_message: formData.get("interested-person-message"),
-        },
-      })
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: body,
+        })
 
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: body,
-      })
+        if (response.status >= 400 && response.status <= 600)
+          throw new Error(response.statusText)
 
-      if (response.status === 200) {
+        contactFormSuccessMessage.classList.toggle("show")
+        contactFormSuccessMessage.scrollIntoView({ behavior: "smooth" })
+
+        if (contactFormErrorMessage.classList.contains("show"))
+          contactFormErrorMessage.classList.remove("show")
+      } catch (error) {
+        contactFormErrorMessage.classList.toggle("show")
+
+        if (contactFormSuccessMessage.classList.contains("show"))
+          contactFormSuccessMessage.classList.remove("show")
+
+        contactFormErrorMessage.scrollIntoView({ behavior: "smooth" })
+        handleDisabledInContactFormInputs({ disabled: false })
+        submitButton.removeAttribute("disabled")
       }
     })
+
+  function handleDisabledInContactFormInputs({ disabled }) {
+    Object.keys(formInputs).map((input) => {
+      disabled
+        ? formInputs[input].element.setAttribute("disabled", true)
+        : formInputs[input].element.removeAttribute("disabled")
+    })
+  }
 })
