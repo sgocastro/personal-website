@@ -357,6 +357,10 @@ main .experience .experience .stack img {
   display: none;
 }
 
+.show {
+  display: flex;
+}
+
 @media only screen and (min-width: 1024px) {
   main .experiences-article .experiences {
     flex-flow: row wrap;

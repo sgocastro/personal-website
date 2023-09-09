@@ -38,12 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData(e.target)
 
-        const API_URL = "https://api.emailjs.com/api/v1.0/email/send"
-
         const body = JSON.stringify({
-          service_id: process.env.EMAIL_JS_SERVICE_ID,
-          template_id: process.env.EMAIL_JS_TEMPLATE_ID,
-          user_id: process.env.EMAIL_JS_USER_ID,
+          service_id: import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
+          template_id: import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
+          user_id: import.meta.env.VITE_EMAIL_JS_USER_ID,
           template_params: {
             interested_person_name: formData.get("interested-person-name"),
             interested_person_email: formData.get("interested-person-email"),
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.setAttribute("disabled", true)
         handleDisabledInContactFormInputs({ disabled: true })
 
-        const response = await fetch(API_URL, {
+        const response = await fetch(import.meta.env.VITE_EMAIL_JS_API_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
