@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   )
   const submitButton = document.getElementById("contact-article-submit-button")
 
+  document.getElementById("years-development").innerText =
+    getDifferencesInYears("01/09/2018")
+
   document
     .querySelector("form#contact-form")
     .addEventListener("submit", async (e) => {
@@ -93,3 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 })
+
+function getDifferencesInYears(date) {
+  const year = new Date(date).getFullYear()
+  const todayYear = new Date(Date.now()).getFullYear()
+  return todayYear - year
+}
