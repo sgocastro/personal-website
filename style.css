@@ -133,11 +133,6 @@ main .about-me {
   flex-direction: column;
 }
 
-main .about-me img {
-  width: 34rem;
-  height: 34rem;
-}
-
 main .about-me .about-me__text {
   padding: 2.4rem;
   display: flex;
@@ -203,8 +198,6 @@ main .experiences .experience {
 
 main .experiences .experience img {
   grid-area: logo;
-  width: 5rem;
-  height: 5rem;
   align-self: center;
 }
 
@@ -259,11 +252,6 @@ main .experiences .experience .stack {
   max-width: 40rem;
 }
 
-main .experience .experience .stack img {
-  width: 20px;
-  height: 20px;
-}
-
 .contact-article {
   background-color: var(--primary-color);
   padding: 2.4rem;
@@ -284,7 +272,7 @@ main .experience .experience .stack img {
   align-items: center;
   flex-flow: column nowrap;
   gap: 1.6rem;
-  width: calc(100% - 4.8rem);
+  width: 100%;
   max-width: var(--phone-screen-size);
 }
 
@@ -302,14 +290,12 @@ main .experience .experience .stack img {
 }
 
 .contact-article__form__field__input {
-  width: 100%;
   padding: .8rem 1.2rem;
   border-radius: .4rem;
   font-size: var(--m-text-size);
 }
 
 .contact-article__form__field__textarea {
-  width: 100%;
   padding: .8rem 1.2rem;
   resize: none;
   overflow: hidden;
